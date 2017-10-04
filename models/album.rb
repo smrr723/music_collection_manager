@@ -30,6 +30,14 @@ end
 
 # def list_all_albums()
 # end
+def self.list_all()
+  db = PG.connect({dbname: 'music_collection', host: 'localhost'})
+  sql = "SELECT * FROM albums;"
+  albums = db.exec(sql)
+  db.close()
+  return orders
+end
+
 #
 # def list_albums_by_artist(artist_name)
 # end

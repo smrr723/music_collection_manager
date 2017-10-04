@@ -8,9 +8,8 @@ attr_accessor :artist_name
 attr_reader :id
 
 def initialize(options)
-  @artist_name =
+  @artist_name = options['artist_name']
   @id = options['id'].to_i if options['id']
-
 end
 
 def save()
