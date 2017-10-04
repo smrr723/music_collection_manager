@@ -1,6 +1,6 @@
 require 'pg'
 require_relative '../db/sql_runner'
-require_relative '../artists'
+require_relative '../models/artist'
 
 
 class Album

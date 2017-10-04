@@ -1,6 +1,6 @@
 require 'pry'
-require_relative '..models/album'
-require_relative '..models/artists'
+require_relative '../models/album'
+require_relative '../models/artist'
 
 artist1 = Artist.new({
   'artist_name' => 'Toto'
@@ -28,3 +28,9 @@ artist2.save()
 artist3.save()
 artist4.save()
 artist5.save()
+
+
+
+
+binding.pry
+nil
