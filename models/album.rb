@@ -20,16 +20,22 @@ end
 # C R U D
 
 def save()
+  db = PG.connect({dbname: 'music_collection', host: 'localhost'})
+  sql = "INSERT INTO albums (album_title, @genre) VALUES ($1, $2)"
+  values = [@album_title, @genre]
+  db.prepare("save_album", sql)
+  db.exec_prepared("save_album", values)
+  db.close
 end
 
-def list_all_albums()
-end
-
-def list_albums_by_artist(artist_name)
-end
-
-def list_artist_by_album(album_title)
-end
+# def list_all_albums()
+# end
+#
+# def list_albums_by_artist(artist_name)
+# end
+#
+# def list_artist_by_album(album_title)
+# end
 
 
 
