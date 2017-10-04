@@ -13,13 +13,10 @@ def initialize(options)
 end
 
 def save()
-  db = PG.connect({dbname: 'music_collection', host: 'localhost'})
-  sql = "INSERT INTO artists (artist_name) VALUES ($1)"
-
+  sql = "INSERT INTO artists (artist_name) VALUES ($1) RETURNING id;"
   values = [@artist_name]
-  db.prepare("save_customer", sql)
-  db.exec_prepared("save_customer", values)
-  db.close
+  result = SqlRunner.run(sql, values)
+  @id = result[0]['id'].to_i
 end
 
 
